@@ -16,11 +16,11 @@ const Footer = () => {
                 </nav>
                 <nav>
                     <h6 className="footer-title">Quik Link</h6>
-                    <a className="link link-hover"><NavLink to={'/'}>Home</NavLink></a>
-                    <a className="link link-hover"><NavLink to={'all-art-craft'}>All Art & Crafts</NavLink></a>
-                    <a className="link link-hover"><NavLink to={'add-art-craft'}>Add Craft item</NavLink></a>
-                    <a className="link link-hover"><NavLink to={'my-art-craft'}>My art and craft list</NavLink></a>
-                    <a className="link link-hover"><NavLink to={'about'}>About Us</NavLink></a>
+                    <span className="link link-hover"><NavLink to={'/'}>Home</NavLink></span>
+                    <span className="link link-hover"><NavLink to={'all-art-craft'}>All Art & Crafts</NavLink></span>
+                    <span className="link link-hover"><NavLink to={'add-art-craft'}>Add Craft item</NavLink></span>
+                    <span className="link link-hover"><NavLink to={'my-art-craft'}>My art and craft list</NavLink></span>
+                    <span className="link link-hover"><NavLink to={'about'}>About Us</NavLink></span>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Legal</h6>
