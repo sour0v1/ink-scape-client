@@ -8,14 +8,14 @@ const Navbar = () => {
             <div className='flex justify-between items-center'>
                 <h2 className='text-2xl font-bold'>inkScape</h2>
                 <div className='hidden md:block'>
-                    <ul className='flex gap-6 justify-center items-center'>
+                    <ul className='flex gap-6 justify-center items-center font-medium'>
                         <li><NavLink to={'/'}>Home</NavLink></li>
                         <li><NavLink to={'all-art-craft'}>All Art & Crafts</NavLink></li>
                         <li><NavLink to={'add-art-craft'}>Add Craft item</NavLink></li>
                         <li><NavLink to={'my-art-craft'}>My art and craft list</NavLink></li>
                         <li><NavLink to={'about'}>About Us</NavLink></li>
-                        <li><NavLink to={'log-in'}>Log In</NavLink></li>
-                        <li><NavLink to={'registration'}>Register</NavLink></li>
+                        <li className="border px-2 py-1"><NavLink to={'log-in'}>Log In</NavLink></li>
+                        <li className="border px-2 py-1"><NavLink to={'registration'}>Register</NavLink></li>
 
                     </ul>
                 </div>
