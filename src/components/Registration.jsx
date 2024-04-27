@@ -17,15 +17,15 @@ const Registration = () => {
         setRegError('');
         // console.log(name, email);
         if(password.length < 6){
-            setRegError('Password length must be at least 6 character');
+            setRegError('Password length must be at least 6 character!');
             return;
         }
         else if(!/(?=.*[A-Z])/.test(password)){
-            setRegError('Password must  have an Uppercase letter in the password');
+            setRegError('Password must  have an Uppercase letter in the password!');
             return;
         }
         else if(!/^(?=.*[a-z]).+$/.test(password)){
-            setRegError('Password must have an Lowercase letter in the password');
+            setRegError('Password must have an Lowercase letter in the password!');
             return;
         }
         else{

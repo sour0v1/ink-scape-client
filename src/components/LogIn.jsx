@@ -37,7 +37,7 @@ const LogIn = () => {
             <span><FaGithub /></span>
             <button>Continue with Github</button>
           </div>
-          <p>New to <i>inkScape</i>? <Link to={'/registration'} className="text-blue-600 underline">Register</Link></p>
+          <p className='text-center'>New to inkScape? <Link to={'/registration'} className="text-blue-600 underline">Register</Link></p>
         </form>
       </div>
     </div>

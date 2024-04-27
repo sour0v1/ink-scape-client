@@ -13,6 +13,7 @@ import Home from './components/Home.jsx';
 import AllArtCrafts from './components/AllArtCrafts.jsx';
 import AddArtCraft from './components/AddArtCraft.jsx';
 import MyArtCraft from './components/MyArtCraft.jsx';
+import About from './components/About.jsx';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path : 'my-art-craft',
         element : <MyArtCraft></MyArtCraft>
+      },
+      {
+        path : '/about',
+        element : <About></About>
       }
     ]
   },
