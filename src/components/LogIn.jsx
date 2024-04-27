@@ -59,7 +59,7 @@ const LogIn = () => {
       })
   }
   return (
-    <div className='flex justify-center items-center min-h-screen'>
+    <div className='flex justify-center items-center min-h-screen my-9'>
       <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <form className="card-body">
           <h2 className='text-2xl font-bold text-center'>inkScape</h2>

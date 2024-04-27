@@ -4,10 +4,10 @@ import './Nav.css'
 
 const Navbar = () => {
     return (
-        <div className='shadow-lg mb-9 px-3 py-6'>
+        <div className='shadow-lg px-3 py-6'>
             <div className='flex justify-between items-center'>
                 <h2 className='text-2xl font-bold'>inkScape</h2>
-                <div className='hidden md:block'>
+                <div className='hidden lg:block'>
                     <ul className='flex gap-6 justify-center items-center font-medium'>
                         <li><NavLink to={'/'}>Home</NavLink></li>
                         <li><NavLink to={'all-art-craft'}>All Art & Crafts</NavLink></li>
@@ -19,7 +19,7 @@ const Navbar = () => {
 
                     </ul>
                 </div>
-                <div className="dropdown dropdown-end block md:hidden">
+                <div className="dropdown dropdown-end block lg:hidden">
                     <div tabIndex={0} role="button" className="btn">
                         <div className="w-6 rounded-full">
                             <p className="text-xl text-center flex justify-center items-center"><CiMenuFries /></p>

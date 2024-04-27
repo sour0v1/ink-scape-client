@@ -55,7 +55,7 @@ const Registration = () => {
         console.log(userObj)
     }
     return (
-        <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row justify-center md:justify-start items-center gap-9 w-full md:h-[550px] bg-gray-50 rounded-tl-btn rounded-bl-btn mb-6">          
+        <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row justify-center md:justify-start items-center gap-9 w-full md:h-[550px] bg-gray-50 rounded-tl-btn rounded-bl-btn my-9">          
                 <img className="h-full w-1/2 rounded-tl-btn rounded-bl-btn hidden md:block" src="/paint-log-in.jpg" alt="" />
             <div className="w-full md:w-1/2 md:mr-9 px-4 md:px-0 space-y-6">
                 <h2 className="text-4xl font-bold text-center my-6">inkScape</h2>
