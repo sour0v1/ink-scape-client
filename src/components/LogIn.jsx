@@ -29,15 +29,15 @@ const LogIn = () => {
             <button className="btn bg-[#E6AF2E]">Login</button>
           </div>
           <p className='text-center'>Or</p>
-          <div className='px-3 py-2 border rounded w-full border-black flex justify-center items-center gap-2'>
+          <div className='px-3 py-2 border rounded w-full border-gray-600 flex justify-center items-center gap-2 btn'>
             <span><FcGoogle /></span>
             <button>Continue with Google</button>
           </div>
-          <div className='px-3 py-2 border rounded w-full border-black flex justify-center items-center gap-2'>
+          <div className='px-3 py-2 border rounded w-full border-gray-600 flex justify-center items-center gap-2 btn'>
             <span><FaGithub /></span>
             <button>Continue with Github</button>
           </div>
-          <p>Already Registered? <Link to={'/registration'} className="text-blue-600 underline">Log In</Link></p>
+          <p>New to <i>inkScape</i>? <Link to={'/registration'} className="text-blue-600 underline">Register</Link></p>
         </form>
       </div>
     </div>

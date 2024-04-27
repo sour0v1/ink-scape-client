@@ -9,6 +9,10 @@ import {
 import Registration from './components/Registration.jsx';
 import LogIn from './components/LogIn.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
+import Home from './components/Home.jsx';
+import AllArtCrafts from './components/AllArtCrafts.jsx';
+import AddArtCraft from './components/AddArtCraft.jsx';
+import MyArtCraft from './components/MyArtCraft.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,12 +20,28 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     children : [
       {
+        path : '/',
+        element : <Home></Home>
+      },
+      {
         path : '/registration',
         element : <Registration></Registration>
       },
       {
         path : '/log-in',
         element : <LogIn></LogIn>
+      },
+      {
+        path : '/all-art-craft',
+        element : <AllArtCrafts></AllArtCrafts>
+      },
+      {
+        path : '/add-art-craft',
+        element : <AddArtCraft></AddArtCraft>
+      },
+      {
+        path : 'my-art-craft',
+        element : <MyArtCraft></MyArtCraft>
       }
     ]
   },
