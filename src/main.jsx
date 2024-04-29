@@ -15,6 +15,7 @@ import About from './components/About.jsx';
 import AllArtCrafts from './components/AllArtCrafts.jsx';
 import MyArtCrafts from './components/MyArtCrafts.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 
 
 const router = createBrowserRouter([
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/add-art-craft',
-        element: <AddArtCraft></AddArtCraft>
+        element: <PrivateRoute><AddArtCraft></AddArtCraft></PrivateRoute>
       },
       {
         path: '/all-art-crafts',
@@ -47,7 +48,7 @@ const router = createBrowserRouter([
       {
         path : '/my-art-crafts',
         loader: () => fetch('http://localhost:5000/craft'),
-        element : <MyArtCrafts></MyArtCrafts>
+        element : <PrivateRoute><MyArtCrafts></MyArtCrafts></PrivateRoute>
       },
       {
         path: '/about',
