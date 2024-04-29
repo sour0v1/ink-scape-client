@@ -1,8 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const AddArtCraft = () => {
-    const handleAdd = e =>{
+    const [category, setCategory] = useState('');
+    const loggedUser = 'me@email.com';
+
+    const handleCategory = e => {
+        setCategory(e.target.value);
+    }
+
+    const handleAdd = e => {
         e.preventDefault();
+        const form = e.target;
+        const itemName = form.iname.value;
+        const image = form.image.value;
+        const subCategory = category;
+        const description = form.description.value;
+        const price = form.price.value;
+        const processingTime = form.time.value;
+        const stockStatus = form.stock.value;
+        const craftRating = form.rating.value;
+        const customization = form.customization.value;
+        const user = form.cname.value;
+        const email = form.email.value;
+        const itemDetails = {
+            itemName, image, subCategory, description, price, processingTime, stockStatus, craftRating, customization, user, email, loggedUser
+        }
+        console.log(itemDetails);
+        // send craft item to server
+        fetch('http://localhost:5000/craft', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(itemDetails)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Craft item added successfully!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            })
+
     }
     return (
         <div className='max-w-5xl mx-auto my-9'>
@@ -26,9 +72,9 @@ const AddArtCraft = () => {
                             <p className="label">
                                 <span className="label-text">Category</span>
                             </p>
-                            <select className="select select-bordered join-item">
-                                <option disabled selected>Select</option>
-                                <option>Sci-fi</option>
+                            <select onChange={handleCategory} className="select select-bordered join-item">
+                                <option disabled>Select</option>
+                                <option>Forest-based Landscape Painting</option>
                                 <option>Drama</option>
                                 <option>Action</option>
                             </select>
@@ -54,36 +100,25 @@ const AddArtCraft = () => {
                             </div>
                         </div>
                         <div className="form-control w-full">
-                            <p className="label">
-                                <span className="label-text">Stock Status</span>
-                            </p>
-                            <select className="select select-bordered join-item">
-                                <option disabled selected>Select</option>
-                                <option>In stock</option>
-                                <option>Out of stock</option>
-                            </select>
-                        </div>
-                        <div className='flex justify-between gap-3 items-center'>
-                            <div className="form-control w-full">
-                                <p className="label">
-                                    <span className="label-text">Customization</span>
-                                </p>
-                                <select className="select select-bordered join-item">
-                                    <option disabled selected>Select</option>
-                                    <option>Yes</option>
-                                    <option>No</option>
-                                </select>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Stock Status</span>
+                                </label>
+                                <input type="text" placeholder="In stock or made to order" className="input input-bordered" required name='stock' />
                             </div>
-                            <div className="form-control w-full">
-                                <p className="label">
+                        </div>
+                        <div className='flex w-full justify-center gap-3 items-center'>
+                            <div className="form-control w-1/2">
+                                <label className="label">
+                                    <span className="label-text">Customization</span>
+                                </label>
+                                <input type="text" placeholder="Yes or No" className="input input-bordered" required name='customization' />
+                            </div>
+                            <div className="form-control w-1/2">
+                                <label className="label">
                                     <span className="label-text">Rating</span>
-                                </p>
-                                <select className="select select-bordered join-item">
-                                    <option disabled selected>Select</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5 days</option>
-                                </select>
+                                </label>
+                                <input type="text" placeholder="Rating" className="input input-bordered" required name='rating' />
                             </div>
                         </div>
                         <div className="form-control">

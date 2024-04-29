@@ -12,6 +12,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { GithubAuthProvider } from 'firebase/auth';
 
 const LogIn = () => {
+  // log in with email and pass
   // log in with google
   const handleGoogleLogIn = () => {
     const googleProvider = new GoogleAuthProvider();

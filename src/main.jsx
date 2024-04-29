@@ -10,43 +10,45 @@ import Registration from './components/Registration.jsx';
 import LogIn from './components/LogIn.jsx';
 import AuthProvider from './provider/AuthProvider.jsx';
 import Home from './components/Home.jsx';
-import AllArtCrafts from './components/AllArtCrafts.jsx';
 import AddArtCraft from './components/AddArtCraft.jsx';
-import MyArtCraft from './components/MyArtCraft.jsx';
 import About from './components/About.jsx';
+import AllArtCrafts from './components/AllArtCrafts.jsx';
+import MyArtCrafts from './components/MyArtCrafts.jsx';
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    children : [
+    children: [
       {
-        path : '/',
-        element : <Home></Home>
+        path: '/',
+        element: <Home></Home>
       },
       {
-        path : '/registration',
-        element : <Registration></Registration>
+        path: '/registration',
+        element: <Registration></Registration>
       },
       {
-        path : '/log-in',
-        element : <LogIn></LogIn>
+        path: '/log-in',
+        element: <LogIn></LogIn>
       },
       {
-        path : '/all-art-craft',
+        path: '/add-art-craft',
+        element: <AddArtCraft></AddArtCraft>
+      },
+      {
+        path: '/all-art-crafts',
+        loader: () => fetch('http://localhost:5000/craft'),
         element : <AllArtCrafts></AllArtCrafts>
       },
       {
-        path : '/add-art-craft',
-        element : <AddArtCraft></AddArtCraft>
+        path : '/my-art-crafts',
+        element : <MyArtCrafts></MyArtCrafts>
       },
       {
-        path : 'my-art-craft',
-        element : <MyArtCraft></MyArtCraft>
-      },
-      {
-        path : '/about',
-        element : <About></About>
+        path: '/about',
+        element: <About></About>
       }
     ]
   },
@@ -55,7 +57,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-    <RouterProvider router={router} />
+      <RouterProvider router={router} />
     </AuthProvider>
   </React.StrictMode>,
 )
