@@ -14,12 +14,14 @@ import AddArtCraft from './components/AddArtCraft.jsx';
 import About from './components/About.jsx';
 import AllArtCrafts from './components/AllArtCrafts.jsx';
 import MyArtCrafts from './components/MyArtCrafts.jsx';
+import ErrorPage from './components/ErrorPage.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement : <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
@@ -44,6 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path : '/my-art-crafts',
+        loader: () => fetch('http://localhost:5000/craft'),
         element : <MyArtCrafts></MyArtCrafts>
       },
       {
