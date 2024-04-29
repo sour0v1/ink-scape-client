@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 // icons
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
@@ -12,6 +12,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { GithubAuthProvider } from 'firebase/auth';
 
 const LogIn = () => {
+  const navigate = useNavigate(null);
   // log in with email and pass
   const handleEmailLogIn = e => {
     e.preventDefault();
@@ -22,6 +23,13 @@ const LogIn = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(result => {
         console.log(result.user);
+        Swal.fire({
+          title: 'Success!',
+          text: 'Logged in Successfully!',
+          icon: 'success',
+          confirmButtonText: 'Ok'
+        })
+        navigate('/');
       })
       .catch(error => {
         console.log(error.message);

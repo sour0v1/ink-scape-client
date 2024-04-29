@@ -9,7 +9,7 @@ const Banner = () => {
                     <img src="/slide-1.jpg" className="w-full h-[500px]" />
                     <div className="absolute flex justify-between items-center transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide4" className="btn btn-circle">❮</a>
-                        <h1 className='w-2/3 mx-auto text-center text-white text-6xl font-bold'>Discover Your CreativeSanctuary Artisanal<Typewriter words={[`  Delights Await`]} cursor loop = {false}></Typewriter></h1>
+                        <h1 className='w-2/3 mx-auto text-center text-white text-6xl font-bold'>Discover Your CreativeSanctuary Artisanal <br /><Typewriter words={[`  Delights Await`]} cursor loop = {false}></Typewriter></h1>
                         
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>

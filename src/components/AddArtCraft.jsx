@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import { AuthContext } from '../provider/AuthProvider';
 
 const AddArtCraft = () => {
+    const {user} = useContext(AuthContext);
     const [category, setCategory] = useState('');
-    const loggedUser = 'me@email.com';
+    const loggedUser = user && user.loggedUser;
+    console.log(loggedUser)
 
     const handleCategory = e => {
         setCategory(e.target.value);
     }
 
-    const handleAdd = e => {
+        const handleAdd = e => {
         e.preventDefault();
         const form = e.target;
         const itemName = form.iname.value;

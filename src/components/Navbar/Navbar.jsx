@@ -1,9 +1,24 @@
 import { CiMenuFries } from "react-icons/ci";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import './Nav.css'
+import { useContext, useState } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { Tooltip } from "react-tooltip";
+import { signOut } from "firebase/auth";
+import auth from "../../firebase.config";
 
 const Navbar = () => {
-    const handleTheme = () =>{
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate(null);
+    // handle sign out
+    const handleSignOut = () => {
+        signOut(auth)
+            .then(() => {
+                // console.log('signOut successfully');
+                navigate('/log-in');
+            })
+    }
+    const handleTheme = () => {
         const getRoot = document.getElementById('root');
         getRoot.className = 'bg-black';
         console.log(getRoot);
@@ -19,8 +34,13 @@ const Navbar = () => {
                         <li><NavLink to={'add-art-craft'}>Add Craft item</NavLink></li>
                         <li><NavLink to={'my-art-crafts'}>My art and craft list</NavLink></li>
                         <li><NavLink to={'about'}>About Us</NavLink></li>
-                        <li className="border px-2 py-1"><NavLink to={'log-in'}>Log In</NavLink></li>
-                        <li className="border px-2 py-1"><NavLink to={'registration'}>Register</NavLink></li>
+                        {
+                            user ? <a href={`${user.photoURL}`} data-tooltip-id="my-tooltip" data-tooltip-place="right-end" data-tooltip-content={user.displayName}>photoURL</a> : <li><NavLink to={'/log-in'}>Log In</NavLink></li>
+                        }
+                        <Tooltip id="my-tooltip" />
+                        {
+                            user ? <button onClick={handleSignOut}>Log Out</button> : <li className="border px-2 py-1"><NavLink to={'registration'}>Register</NavLink></li>
+                        }
                         <li onClick={handleTheme}>Switch</li>
                         <li>
                             <label className="flex cursor-pointer gap-2">

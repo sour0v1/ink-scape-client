@@ -4,8 +4,8 @@ const AllCraft = ({ item }) => {
     console.log(item);
     const { itemName, image, subCategory, description, price, processingTime, stockStatus, craftRating, customization, user, email } = item;
     return (
-        <div className='max-w-6xl m-auto'>
-            <div className="card w-96 bg-base-100 shadow-xl">
+        <div>
+            <div className="card w-full bg-base-100 shadow-xl">
                 <figure><img src={image} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
