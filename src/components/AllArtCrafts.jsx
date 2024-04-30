@@ -5,15 +5,35 @@ import AllCraft from './AllCraft';
 const AllArtCrafts = () => {
     const craftItems = useLoaderData();
     console.log(craftItems);
+    const { itemName, customization, stockStatus, price, processingTime } = craftItems;
     return (
-        <div className='max-w-6xl m-auto'>
+        <div className="overflow-x-auto max-w-6xl mx-auto mb-9">
             <h2 className='my-9 text-2xl font-bold text-center'>All Art & Crafts</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-
-                {
-                    craftItems.map(item => <AllCraft item={item} key={item._id}></AllCraft>)
-                }
-            </div>
+            <table className="table table-zebra">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Item</th>
+                        <th>Status</th>
+                        <th>Processing Time</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        craftItems.map((craft, idx) => <tr key={idx}>
+                            <th>{idx + 1}</th>
+                            <td>{craft.itemName}</td>
+                            <td>{craft.stockStatus}</td>
+                            <td>{craft.processingTime}</td>
+                            <td>{craft.price} $</td>
+                            <td><button className='py-1 px-2 rounded bg-orange-400'>View Details</button></td>
+                        </tr>)
+                    }
+                </tbody>
+            </table>
         </div>
     );
 };

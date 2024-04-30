@@ -4,9 +4,9 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { AuthContext } from '../provider/AuthProvider';
 
 const AddArtCraft = () => {
-    const {user} = useContext(AuthContext);
+    const {user, loading} = useContext(AuthContext);
     const [category, setCategory] = useState('');
-    const loggedUser = user && user.loggedUser;
+    const loggedUser = user.loggedUser;
     console.log(loggedUser)
 
     const handleCategory = e => {

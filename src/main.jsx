@@ -16,6 +16,7 @@ import AllArtCrafts from './components/AllArtCrafts.jsx';
 import MyArtCrafts from './components/MyArtCrafts.jsx';
 import ErrorPage from './components/ErrorPage.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
+import CraftItems from './components/CraftItems.jsx';
 
 
 const router = createBrowserRouter([
@@ -53,7 +54,7 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About></About>
-      }
+      },
     ]
   },
 ]);
