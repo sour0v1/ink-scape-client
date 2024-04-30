@@ -7,7 +7,7 @@ const CraftItems = () => {
     const {theme} = useContext(AuthContext);
     const [craftItems, setCraftItems] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/craft')
+        fetch('https://ink-scape-server.vercel.app/craft')
             .then(res => res.json())
             .then(data => {
                 setCraftItems(data)

@@ -44,17 +44,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/all-art-crafts',
-        loader: () => fetch('http://localhost:5000/craft'),
+        loader: () => fetch('https://ink-scape-server.vercel.app/craft'),
         element : <AllArtCrafts></AllArtCrafts>
       },
       {
         path : '/my-art-crafts',
-        loader: () => fetch('http://localhost:5000/craft'),
+        loader: () => fetch('https://ink-scape-server.vercel.app/craft'),
         element : <PrivateRoute><MyArtCrafts></MyArtCrafts></PrivateRoute>
-      },
-      {
-        path: '/about',
-        element: <About></About>
       },
       {
         path : '/craft-details',

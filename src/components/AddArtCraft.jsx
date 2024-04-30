@@ -32,7 +32,7 @@ const AddArtCraft = () => {
         }
         console.log(itemDetails);
         // send craft item to server
-       fetch('http://localhost:5000/craft', {
+       fetch('https://ink-scape-server.vercel.app/craft', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
