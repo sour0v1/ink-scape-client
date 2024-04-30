@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Footer = () => {
+    const {theme} = useContext(AuthContext);
     return (
         <div>
-            <footer className="footer p-10 bg-base-200 text-base-content">
+            <footer className={`footer p-10 bg-base-200 text-base-content ${!theme && 'bg-gray-950'} ${!theme && 'text-white'}`} >
                 <nav>
                     <h6 className="footer-title">Contact</h6>
                     <ul className='space-y-2'>
@@ -29,7 +31,7 @@ const Footer = () => {
                     <a className="link link-hover">Cookie policy</a>
                 </nav>
             </footer>
-            <footer className="footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300">
+            <footer className={`footer px-10 py-4 border-t bg-base-200 text-base-content border-base-300 ${!theme && 'bg-gray-950'} ${!theme && 'text-white'}`}>
                 <aside className="items-center grid-flow-col">
                     <p><span className='font-bold'>inkScape</span>. <br />Copyright © 2024 - All right reserved by inkScape.</p>
                 </aside>

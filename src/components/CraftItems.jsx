@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import AllCraft from './AllCraft';
+import { AuthContext } from '../provider/AuthProvider';
 
 const CraftItems = () => {
+    const {theme} = useContext(AuthContext);
     const [craftItems, setCraftItems] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/craft')
@@ -12,7 +14,7 @@ const CraftItems = () => {
             })
     }, [])
     return (
-        <div className='max-w-6xl m-auto mb-9'>
+        <div className={`max-w-6xl m-auto ${theme ? 'mb-9': 'mb-0'}`}>
             <h2 className='my-9 text-2xl font-bold text-center'>Craft Items</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
 

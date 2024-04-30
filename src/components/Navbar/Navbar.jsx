@@ -8,7 +8,8 @@ import { signOut } from "firebase/auth";
 import auth from "../../firebase.config";
 
 const Navbar = () => {
-    const { user } = useContext(AuthContext);
+    // const [theme, setTheme] = useState(true);
+    const { user, handleTheme ,theme } = useContext(AuthContext);
     const navigate = useNavigate(null);
     // handle sign out
     const handleSignOut = () => {
@@ -18,13 +19,11 @@ const Navbar = () => {
                 navigate('/log-in');
             })
     }
-    // const handleTheme = () => {
-    //     const getRoot = document.getElementById('root');
-    //     getRoot.className = 'bg-black';
-    //     console.log(getRoot);
-    // }
+    const handleThemeControl = () => {
+        handleTheme();
+    }
     return (
-        <div className='shadow-lg px-3 py-6'>
+        <div className={`shadow-lg px-3 py-6 ${theme ? 'bg-white' : 'bg-gray-950'} ${theme ? 'text-black' : 'text-white'}`}>
             <div className='flex justify-between items-center'>
                 <h2 className='text-2xl font-bold'>inkScape</h2>
                 <div className='hidden lg:block'>
@@ -35,20 +34,16 @@ const Navbar = () => {
                         <li><NavLink to={'my-art-crafts'}>My art and craft list</NavLink></li>
                         <li><NavLink to={'about'}>About Us</NavLink></li>
                         {
-                            user ? <a href={`${user.photoURL}`} data-tooltip-id="my-tooltip" data-tooltip-place="right-end" data-tooltip-content={user.displayName}>photoURL</a> : <li><NavLink to={'/log-in'}>Log In</NavLink></li>
+                            user ? <a href={`${user.photoURL}`} data-tooltip-id="my-tooltip" data-tooltip-place="right-end" data-tooltip-content={user.displayName}>photoURL</a> : <li className="border px-2 py-1"><NavLink to={'/log-in'}>Log In</NavLink></li>
                         }
                         <Tooltip id="my-tooltip" />
                         {
                             user ? <button onClick={handleSignOut}>Log Out</button> : <li className="border px-2 py-1"><NavLink to={'registration'}>Register</NavLink></li>
                         }
-                        <li>Switch</li>
-                        <li>
-                            <label className="flex cursor-pointer gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" /></svg>
-                                <input type="checkbox" value="synthwave" className="toggle theme-controller" />
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-                            </label>
-                        </li>
+                        {/* <li onClick={handleThemeControl}>{theme ? 'Dark'}</li> */}
+                        {
+                            theme ? <li onClick={handleThemeControl}>Dark Mode</li>: <li onClick={handleThemeControl}>Light Mode</li>
+                        }
 
                     </ul>
                 </div>

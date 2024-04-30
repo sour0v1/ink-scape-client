@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 const AllCraft = ({ item }) => {
+    const {theme} = useContext(AuthContext);
     console.log(item);
     const { itemName, image, subCategory, description, price, processingTime, stockStatus, craftRating, customization, user, email } = item;
     return (
         <div>
-            <div className="card w-full bg-base-100 shadow-xl">
+            <div className={`card w-full bg-base-100 shadow-xl ${!theme && 'bg-gray-950'} ${!theme && 'text-white'} ${!theme && 'border border-white'}`}>
                 <figure><img src={image} alt="" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">

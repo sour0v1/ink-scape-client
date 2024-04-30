@@ -6,6 +6,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
+    const [theme, setTheme] = useState(true);
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
     // get current sign in user
@@ -19,8 +20,16 @@ const AuthProvider = ({ children }) => {
             unsubscribe();
         }
     }, [])
+    // handle theme
+    const handleTheme = () => {
+        // const getRoot = document.getElementById('home');
+        // getRoot.className = 'bg-black';
+        // console.log(getRoot);
+        setTheme(!theme);
+        // console.log(theme)
+    }
     const userInfo = {
-        user, loading
+        user, loading, handleTheme, theme
     }
     return (
         <AuthContext.Provider value={userInfo}>
