@@ -4,16 +4,16 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { AuthContext } from '../provider/AuthProvider';
 
 const AddArtCraft = () => {
-    const {user, loading} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
+    console.log(user);
+    // const loggedUser = user && user.loggedUser;
+    // console.log(loggedUser)
     const [category, setCategory] = useState('');
-    const loggedUser = user.loggedUser;
-    console.log(loggedUser)
-
     const handleCategory = e => {
         setCategory(e.target.value);
     }
 
-        const handleAdd = e => {
+    const handleAdd = e => {
         e.preventDefault();
         const form = e.target;
         const itemName = form.iname.value;
@@ -28,11 +28,11 @@ const AddArtCraft = () => {
         const user = form.cname.value;
         const email = form.email.value;
         const itemDetails = {
-            itemName, image, subCategory, description, price, processingTime, stockStatus, craftRating, customization, user, email, loggedUser
+            itemName, image, subCategory, description, price, processingTime, stockStatus, craftRating, customization, user, email, loggedUser : user && user.email,
         }
         console.log(itemDetails);
         // send craft item to server
-        fetch('http://localhost:5000/craft', {
+       fetch('http://localhost:5000/craft', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,6 +52,9 @@ const AddArtCraft = () => {
                 }
             })
 
+    }
+    if(!user){
+        return <p>loading...</p>
     }
     return (
         <div className='max-w-5xl mx-auto my-9'>
