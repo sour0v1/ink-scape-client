@@ -1,7 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const AllCraft = ({ item }) => {
+    const navigate = useNavigate(null);
+    const handleNavigate = () =>{
+        navigate('/craft-details');
+    }
     const {theme} = useContext(AuthContext);
     console.log(item);
     const { itemName, image, subCategory, description, price, processingTime, stockStatus, craftRating, customization, user, email } = item;
@@ -22,7 +27,7 @@ const AllCraft = ({ item }) => {
                     <div className='flex justify-between items-center'>
                         <p className='text-xl font-medium'>{price}$</p>
                         <div className="justify-end space-x-2">
-                            <button className="py-1 rounded px-2 bg-green-200">View Details</button>
+                            <button onClick={handleNavigate} className="py-1 rounded px-2 bg-green-200">View Details</button>
                         </div>
                     </div>
                 </div>

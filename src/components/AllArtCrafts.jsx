@@ -1,8 +1,12 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import AllCraft from './AllCraft';
 
 const AllArtCrafts = () => {
+    const navigate = useNavigate(null);
+    const handleNavigate = () =>{
+        navigate('/craft-details');
+    }
     const craftItems = useLoaderData();
     console.log(craftItems);
     const { itemName, customization, stockStatus, price, processingTime } = craftItems;
@@ -29,7 +33,7 @@ const AllArtCrafts = () => {
                             <td>{craft.stockStatus}</td>
                             <td>{craft.processingTime}</td>
                             <td>{craft.price} $</td>
-                            <td><button className='py-1 px-2 rounded bg-orange-400'>View Details</button></td>
+                            <td><button onClick={handleNavigate} className='py-1 px-2 rounded bg-orange-400'>View Details</button></td>
                         </tr>)
                     }
                 </tbody>
